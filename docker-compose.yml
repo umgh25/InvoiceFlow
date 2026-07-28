@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: invoiceflow-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: invoiceflow_db
+      POSTGRES_USER: invoiceflow_user
+      POSTGRES_PASSWORD: invoiceflow_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - invoiceflow_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  invoiceflow_postgres_data:
